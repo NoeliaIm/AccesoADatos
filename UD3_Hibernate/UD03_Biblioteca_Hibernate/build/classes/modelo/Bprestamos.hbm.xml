@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-ene-2015 11:13:06 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelo.Bprestamos" table="BPRESTAMOS" schema="C##ADH">
+        <id name="idprestamo" type="int">
+            <column name="IDPRESTAMO" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="blibros" class="modelo.Blibros" fetch="select">
+            <column name="IDLIBRO" precision="9" scale="0" />
+        </many-to-one>
+        <many-to-one name="bsocios" class="modelo.Bsocios" fetch="select">
+            <column name="IDSOCIO" precision="9" scale="0" />
+        </many-to-one>
+        <property name="fechasalida" type="java.lang.Integer">
+            <column name="FECHASALIDA" precision="8" scale="0" />
+        </property>
+        <property name="fechamaxima" type="java.lang.Integer">
+            <column name="FECHAMAXIMA" precision="8" scale="0" />
+        </property>
+        <property name="fechaentrega" type="java.lang.Integer">
+            <column name="FECHAENTREGA" precision="8" scale="0" />
+        </property>
+        <property name="devuelto" type="java.lang.Character">
+            <column name="DEVUELTO" length="1" />
+        </property>
+        <property name="eliminado" type="java.lang.Boolean">
+            <column name="ELIMINADO" precision="1" scale="0" />
+        </property>
+        <set name="bmultasprestamoses" table="BMULTASPRESTAMOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRESTAMO" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Bmultasprestamos" />
+        </set>
+    </class>
+</hibernate-mapping>

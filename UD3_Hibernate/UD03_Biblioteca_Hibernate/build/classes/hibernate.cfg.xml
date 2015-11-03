@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:ORADAM2</property>
+    <property name="hibernate.connection.username">c##adh</property>
+    <property name="hibernate.connection.password">adh</property>
+    <mapping resource="modelo/PcodPobl.hbm.xml"/>
+    <mapping resource="modelo/Ppoblaciones.hbm.xml"/>
+    <mapping resource="modelo/Bprestamos.hbm.xml"/>
+    <mapping resource="modelo/Pcomunidad.hbm.xml"/>
+    <mapping resource="modelo/Beditoriales.hbm.xml"/>
+    <mapping resource="modelo/Blibros.hbm.xml"/>
+    <mapping resource="modelo/Pprovincias.hbm.xml"/>
+    <mapping resource="modelo/Bmaterias.hbm.xml"/>
+    <mapping resource="modelo/Bsocios.hbm.xml"/>
+    <mapping resource="modelo/Pcodigopostales.hbm.xml"/>
+    <mapping resource="modelo/Bmultasprestamos.hbm.xml"/>
+    <mapping resource="modelo/Bmultas.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2015 13:35:20 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelo.Blibros" table="BLIBROS" schema="C##USRBIBLIOTECA">
+        <id name="idlibro" type="int">
+            <column name="IDLIBRO" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="beditoriales" class="modelo.Beditoriales" fetch="select">
+            <column name="IDEDITORIAL" precision="9" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="bmaterias" class="modelo.Bmaterias" fetch="select">
+            <column name="IDMATERIA" precision="9" scale="0" />
+        </many-to-one>
+        <property name="isbn" type="long">
+            <column name="ISBN" precision="13" scale="0" not-null="true" />
+        </property>
+        <property name="titulo" type="string">
+            <column name="TITULO" length="100" not-null="true" />
+        </property>
+        <property name="autores" type="string">
+            <column name="AUTORES" length="120" />
+        </property>
+        <property name="nrocopiastot" type="java.lang.Byte">
+            <column name="NROCOPIASTOT" precision="2" scale="0" />
+        </property>
+        <property name="nrocopiasdisp" type="java.lang.Byte">
+            <column name="NROCOPIASDISP" precision="2" scale="0" />
+        </property>
+        <property name="aniopublic" type="java.lang.Short">
+            <column name="ANIOPUBLIC" precision="4" scale="0" />
+        </property>
+        <property name="nropaginas" type="java.lang.Integer">
+            <column name="NROPAGINAS" precision="5" scale="0" />
+        </property>
+        <property name="traductor" type="string">
+            <column name="TRADUCTOR" length="60" />
+        </property>
+        <property name="idioma" type="string">
+            <column name="IDIOMA" length="40" />
+        </property>
+        <property name="estanteria" type="java.lang.Short">
+            <column name="ESTANTERIA" precision="3" scale="0" />
+        </property>
+        <property name="balda" type="java.lang.Short">
+            <column name="BALDA" precision="3" scale="0" />
+        </property>
+        <property name="preciocompra" type="big_decimal">
+            <column name="PRECIOCOMPRA" precision="4" />
+        </property>
+        <property name="eliminado" type="big_decimal">
+            <column name="ELIMINADO" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

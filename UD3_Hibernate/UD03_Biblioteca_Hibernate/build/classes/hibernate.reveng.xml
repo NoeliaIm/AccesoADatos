@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="C##ADH"/>
+  <table-filter match-name="BMULTAS"/>
+  <table-filter match-name="PCOD_POBL"/>
+  <table-filter match-name="BMULTASPRESTAMOS"/>
+  <table-filter match-name="BLIBROS"/>
+  <table-filter match-name="BSOCIOS"/>
+  <table-filter match-name="PPROVINCIAS"/>
+  <table-filter match-name="PCOMUNIDAD"/>
+  <table-filter match-name="PCODIGOPOSTALES"/>
+  <table-filter match-name="PPOBLACIONES"/>
+  <table-filter match-name="BEDITORIALES"/>
+  <table-filter match-name="BPRESTAMOS"/>
+  <table-filter match-name="BMATERIAS"/>
+</hibernate-reverse-engineering>

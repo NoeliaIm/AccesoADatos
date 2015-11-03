@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2015 13:35:20 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelo.Pprovincias" table="PPROVINCIAS" schema="C##USRBIBLIOTECA">
+        <id name="idprovincia" type="big_decimal">
+            <column name="IDPROVINCIA" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pcomunidad" class="modelo.Pcomunidad" fetch="select">
+            <column name="IDCOMUNIDAD" precision="22" scale="0" />
+        </many-to-one>
+        <property name="provincia" type="string">
+            <column name="PROVINCIA" length="50" />
+        </property>
+        <set name="pcodPobls" table="PCOD_POBL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPROVINCIA" precision="22" scale="0" />
+            </key>
+            <one-to-many class="modelo.PcodPobl" />
+        </set>
+    </class>
+</hibernate-mapping>
