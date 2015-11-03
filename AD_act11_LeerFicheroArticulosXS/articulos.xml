@@ -1,0 +1,14 @@
+<Articulos>
+  <Articulo>
+    <id>1</id>
+    <nombre>fer</nombre>
+    <precio>45.45</precio>
+    <cantAlmacen>34</cantAlmacen>
+  </Articulo>
+  <Articulo>
+    <id>2</id>
+    <nombre>fernando</nombre>
+    <precio>45.45</precio>
+    <cantAlmacen>5</cantAlmacen>
+  </Articulo>
+</Articulos>

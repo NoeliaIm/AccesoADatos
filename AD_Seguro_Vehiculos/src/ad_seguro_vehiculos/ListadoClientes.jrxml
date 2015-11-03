@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da947b13-8b9e-48da-91f4-9180d51c74df">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idcliente" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     S_CLIENTES."DNI" AS S_CLIENTES_DNI,
+     S_CLIENTES."NOMBRE" AS S_CLIENTES_NOMBRE,
+     S_CLIENTES."APELLIDOS" AS S_CLIENTES_APELLIDOS,
+     S_CLIENTES."TELEFONO" AS S_CLIENTES_TELEFONO,
+     S_CLIENTES."DIRECCION" AS S_CLIENTES_DIRECCION,
+     S_CLIENTES."CORREO" AS S_CLIENTES_CORREO,
+     S_VEHICULOS."MATRICULA" AS S_VEHICULOS_MATRICULA,
+     S_VEHICULOS."POTENCIA" AS S_VEHICULOS_POTENCIA,
+     S_VEHICULOS."IDCLIENTE" AS S_VEHICULOS_IDCLIENTE,
+     S_MODELOS."MODELO" AS S_MODELOS_MODELO,
+     S_MARCAS."MARCA" AS S_MARCAS_MARCA
+FROM
+     "AD"."S_CLIENTES" S_CLIENTES INNER JOIN "AD"."S_VEHICULOS" S_VEHICULOS ON S_CLIENTES."IDCLIENTE" = S_VEHICULOS."IDCLIENTE"
+     INNER JOIN "AD"."S_MODELOS" S_MODELOS ON S_VEHICULOS."IDMODELO" = S_MODELOS."IDMODELO"
+     INNER JOIN "AD"."S_MARCAS" S_MARCAS ON S_MODELOS."IDMARCA" = S_MARCAS."IDMARCA"
+where S_CLIENTES.idcliente=$P{idcliente}]]>
+	</queryString>
+	<field name="S_CLIENTES_DNI" class="java.lang.String"/>
+	<field name="S_CLIENTES_NOMBRE" class="java.lang.String"/>
+	<field name="S_CLIENTES_APELLIDOS" class="java.lang.String"/>
+	<field name="S_CLIENTES_TELEFONO" class="java.math.BigDecimal"/>
+	<field name="S_CLIENTES_DIRECCION" class="java.lang.String"/>
+	<field name="S_CLIENTES_CORREO" class="java.lang.String"/>
+	<field name="S_VEHICULOS_MATRICULA" class="java.lang.String"/>
+	<field name="S_VEHICULOS_POTENCIA" class="java.math.BigDecimal"/>
+	<field name="S_VEHICULOS_IDCLIENTE" class="java.math.BigDecimal"/>
+	<field name="S_MODELOS_MODELO" class="java.lang.String"/>
+	<field name="S_MARCAS_MARCA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="123" y="26" width="342" height="32" uuid="386648c4-f040-4732-9a1f-bd1b72792218"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="false" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vehiculos de cliente]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="179" splitType="Stretch">
+			<textField>
+				<reportElement x="96" y="41" width="120" height="20" uuid="4d85783a-76b6-492b-8c41-bdebfbef1783"/>
+				<textFieldExpression><![CDATA[$F{S_CLIENTES_DNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="80" width="146" height="20" uuid="6fd9c2ce-ae5e-4a4d-a1bf-9c706a367f9d"/>
+				<textFieldExpression><![CDATA[$F{S_CLIENTES_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="111" width="150" height="20" uuid="057b20fe-03d3-4d3d-990f-a5abc57a654f"/>
+				<textFieldExpression><![CDATA[$F{S_CLIENTES_APELLIDOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="41" width="149" height="20" uuid="85e4a9c6-63b5-4e69-a92f-537633025ff4"/>
+				<textFieldExpression><![CDATA[$F{S_CLIENTES_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="80" width="149" height="20" uuid="be9b59bd-e17a-4152-83fc-8cfe4c6a80a5"/>
+				<textFieldExpression><![CDATA[$F{S_CLIENTES_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="111" width="149" height="20" uuid="c2420fcc-e66d-4f68-b756-909113a37f17"/>
+				<textFieldExpression><![CDATA[$F{S_CLIENTES_CORREO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="159" width="111" height="20" uuid="6822ee8f-e3ba-4c82-a17e-77fe551e41c1"/>
+				<text><![CDATA[MATRICULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="159" width="111" height="20" uuid="2b56de75-3940-478f-8782-a75b345495f3"/>
+				<text><![CDATA[POTENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="159" width="111" height="20" uuid="51571886-f020-4b9f-a05f-09f09de39f22"/>
+				<text><![CDATA[MODELO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="159" width="111" height="20" uuid="ba64a68d-1fb2-408b-9cf1-e54c1e3a7f30"/>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="41" width="65" height="20" uuid="3829aedf-d14e-49eb-81ec-c9dec2e7d4b1"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="80" width="64" height="20" uuid="b3ea9cc1-6486-49ce-8454-15af17fd8afd"/>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="111" width="64" height="20" uuid="1fb326f0-7579-4edf-816b-c4a1aee6a18b"/>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="41" width="61" height="20" uuid="f12b2e15-75fa-4fa2-b67f-a24b961f4a58"/>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="80" width="61" height="20" uuid="36b01133-cfa7-46b7-b743-12ae62781d92"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="111" width="61" height="20" uuid="b0d2d8fb-84f4-4978-b42a-edcf08ebd06c"/>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="11" width="210" height="20" uuid="eb6cbfb7-212c-418b-9a06-977350ebad9b"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informacion Cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="0" width="111" height="20" uuid="95120d9c-652a-4896-975a-d7ce49402a55"/>
+				<textFieldExpression><![CDATA[$F{S_VEHICULOS_MATRICULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="0" width="111" height="20" uuid="7f65d2de-327a-4a2f-9848-681ccdd119e4"/>
+				<textFieldExpression><![CDATA[$F{S_VEHICULOS_POTENCIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="0" width="111" height="20" uuid="ef6ed351-bf17-40ed-90e0-e97a4bb13550"/>
+				<textFieldExpression><![CDATA[$F{S_MODELOS_MODELO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="111" height="20" uuid="ed3c3caf-f27e-4bc3-b171-102f3668eb0b"/>
+				<textFieldExpression><![CDATA[$F{S_MARCAS_MARCA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

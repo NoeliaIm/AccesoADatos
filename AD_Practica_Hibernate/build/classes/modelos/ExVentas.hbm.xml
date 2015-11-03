@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-feb-2014 23:39:50 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.ExVentas" table="EX_VENTAS" schema="USR_VENTAS">
+        <id name="idventa" type="int">
+            <column name="IDVENTA" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="exArticulos" class="modelos.ExArticulos" fetch="select">
+            <column name="IDARTICULO" precision="8" scale="0" />
+        </many-to-one>
+        <many-to-one name="exZonas" class="modelos.ExZonas" fetch="select">
+            <column name="IDZONA" precision="5" scale="0" />
+        </many-to-one>
+        <many-to-one name="exVendedores" class="modelos.ExVendedores" fetch="select">
+            <column name="IDVENDEDOR" precision="8" scale="0" />
+        </many-to-one>
+        <property name="fechaVenta" type="java.lang.Integer">
+            <column name="FECHA_VENTA" precision="8" scale="0" />
+        </property>
+        <property name="unidades" type="java.lang.Short">
+            <column name="UNIDADES" precision="4" scale="0" />
+        </property>
+        <property name="eliminado" type="java.lang.Boolean">
+            <column name="ELIMINADO" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2014 18:09:26 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Oficinas" table="OFICINAS" schema="USR_JARDINERIA">
+        <id name="codigooficina" type="string">
+            <column name="CODIGOOFICINA" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="ciudad" type="string">
+            <column name="CIUDAD" length="30" not-null="true" />
+        </property>
+        <property name="pais" type="string">
+            <column name="PAIS" length="50" not-null="true" />
+        </property>
+        <property name="region" type="string">
+            <column name="REGION" length="50" />
+        </property>
+        <property name="codigopostal" type="string">
+            <column name="CODIGOPOSTAL" length="10" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="20" not-null="true" />
+        </property>
+        <property name="lineadireccion1" type="string">
+            <column name="LINEADIRECCION1" length="50" not-null="true" />
+        </property>
+        <property name="lineadireccion2" type="string">
+            <column name="LINEADIRECCION2" length="50" />
+        </property>
+        <set name="empleadoses" table="EMPLEADOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOOFICINA" length="10" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Empleados" />
+        </set>
+    </class>
+</hibernate-mapping>

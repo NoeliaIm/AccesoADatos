@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-feb-2014 9:08:22 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelos.Hmedicos" table="HMEDICOS" schema="EX">
+        <id name="idmedico" type="int">
+            <column name="IDMEDICO" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="dni" type="string">
+            <column name="DNI" length="9" />
+        </property>
+        <property name="nombrem" type="string">
+            <column name="NOMBREM" length="50" />
+        </property>
+        <property name="espec" type="string">
+            <column name="ESPEC" length="20" />
+        </property>
+        <property name="eliminado" type="java.lang.Boolean">
+            <column name="ELIMINADO" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

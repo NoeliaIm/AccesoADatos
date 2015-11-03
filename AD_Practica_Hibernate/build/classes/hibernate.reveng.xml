@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="USR_VENTAS"/>
+  <table-filter match-name="EX_ZONAS"/>
+  <table-filter match-name="EX_VENDEDORES"/>
+  <table-filter match-name="EX_VENTAS"/>
+  <table-filter match-name="EX_ARTICULOS"/>
+</hibernate-reverse-engineering>

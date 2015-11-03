@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2014 18:09:26 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Pedidos" table="PEDIDOS" schema="USR_JARDINERIA">
+        <id name="codigopedido" type="big_decimal">
+            <column name="CODIGOPEDIDO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="clientes" class="modelos.Clientes" fetch="select">
+            <column name="CODIGOCLIENTE" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fechapedido" type="date">
+            <column name="FECHAPEDIDO" length="7" not-null="true" />
+        </property>
+        <property name="fechaesperada" type="date">
+            <column name="FECHAESPERADA" length="7" not-null="true" />
+        </property>
+        <property name="fechaentrega" type="date">
+            <column name="FECHAENTREGA" length="7" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="15" not-null="true" />
+        </property>
+        <property name="comentarios" type="clob">
+            <column name="COMENTARIOS" />
+        </property>
+        <set name="detallepedidoses" table="DETALLEPEDIDOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOPEDIDO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Detallepedidos" />
+        </set>
+    </class>
+</hibernate-mapping>

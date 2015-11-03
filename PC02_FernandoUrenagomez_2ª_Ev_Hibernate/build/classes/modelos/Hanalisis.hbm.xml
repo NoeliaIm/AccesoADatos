@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-feb-2014 9:08:22 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelos.Hanalisis" table="HANALISIS" schema="EX">
+        <id name="idanalisis" type="int">
+            <column name="IDANALISIS" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="50" not-null="true" />
+        </property>
+        <property name="eliminado" type="boolean">
+            <column name="ELIMINADO" precision="1" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2014 18:09:26 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Empleados" table="EMPLEADOS" schema="USR_JARDINERIA">
+        <id name="codigoempleado" type="big_decimal">
+            <column name="CODIGOEMPLEADO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="oficinas" class="modelos.Oficinas" fetch="select">
+            <column name="CODIGOOFICINA" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleados" class="modelos.Empleados" fetch="select">
+            <column name="CODIGOJEFE" precision="22" scale="0" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="50" not-null="true" />
+        </property>
+        <property name="apellido1" type="string">
+            <column name="APELLIDO1" length="50" not-null="true" />
+        </property>
+        <property name="apellido2" type="string">
+            <column name="APELLIDO2" length="50" />
+        </property>
+        <property name="extension" type="string">
+            <column name="EXTENSION" length="10" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" not-null="true" />
+        </property>
+        <property name="puesto" type="string">
+            <column name="PUESTO" length="50" />
+        </property>
+        <set name="empleadoses" table="EMPLEADOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOJEFE" precision="22" scale="0" />
+            </key>
+            <one-to-many class="modelos.Empleados" />
+        </set>
+        <set name="clienteses" table="CLIENTES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOEMPLEADOREPVENTAS" precision="22" scale="0" />
+            </key>
+            <one-to-many class="modelos.Clientes" />
+        </set>
+    </class>
+</hibernate-mapping>

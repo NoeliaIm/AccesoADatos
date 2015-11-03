@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2014 18:09:26 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Clientes" table="CLIENTES" schema="USR_JARDINERIA">
+        <id name="codigocliente" type="big_decimal">
+            <column name="CODIGOCLIENTE" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleados" class="modelos.Empleados" fetch="select">
+            <column name="CODIGOEMPLEADOREPVENTAS" precision="22" scale="0" />
+        </many-to-one>
+        <property name="nombrecliente" type="string">
+            <column name="NOMBRECLIENTE" length="50" not-null="true" />
+        </property>
+        <property name="nombrecontacto" type="string">
+            <column name="NOMBRECONTACTO" length="30" />
+        </property>
+        <property name="apellidocontacto" type="string">
+            <column name="APELLIDOCONTACTO" length="30" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="15" not-null="true" />
+        </property>
+        <property name="fax" type="string">
+            <column name="FAX" length="15" not-null="true" />
+        </property>
+        <property name="lineadireccion1" type="string">
+            <column name="LINEADIRECCION1" length="50" not-null="true" />
+        </property>
+        <property name="lineadireccion2" type="string">
+            <column name="LINEADIRECCION2" length="50" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="CIUDAD" length="50" not-null="true" />
+        </property>
+        <property name="region" type="string">
+            <column name="REGION" length="50" />
+        </property>
+        <property name="pais" type="string">
+            <column name="PAIS" length="50" />
+        </property>
+        <property name="codigopostal" type="string">
+            <column name="CODIGOPOSTAL" length="10" />
+        </property>
+        <property name="limitecredito" type="big_decimal">
+            <column name="LIMITECREDITO" precision="15" />
+        </property>
+        <set name="pagoses" table="PAGOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOCLIENTE" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Pagos" />
+        </set>
+        <set name="pedidoses" table="PEDIDOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOCLIENTE" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Pedidos" />
+        </set>
+    </class>
+</hibernate-mapping>

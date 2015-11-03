@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-feb-2014 9:08:22 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelos.Hanalrealiz" table="HANALREALIZ" schema="EX">
+        <id name="idanalrealiz" type="int">
+            <column name="IDANALREALIZ" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="idpaciente" type="java.lang.Integer">
+            <column name="IDPACIENTE" precision="6" scale="0" />
+        </property>
+        <property name="idanalisis" type="java.lang.Integer">
+            <column name="IDANALISIS" precision="6" scale="0" />
+        </property>
+        <property name="idmedico" type="java.lang.Integer">
+            <column name="IDMEDICO" precision="6" scale="0" />
+        </property>
+        <property name="fechaanalisis" type="int">
+            <column name="FECHAANALISIS" precision="8" scale="0" not-null="true" />
+        </property>
+        <property name="resultado" type="char">
+            <column name="RESULTADO" length="1" not-null="true" />
+        </property>
+        <property name="eliminado" type="boolean">
+            <column name="ELIMINADO" precision="1" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

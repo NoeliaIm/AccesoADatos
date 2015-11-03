@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2014 18:09:26 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Detallepedidos" table="DETALLEPEDIDOS" schema="USR_JARDINERIA">
+        <composite-id name="id" class="modelos.DetallepedidosId">
+            <key-property name="codigopedido" type="big_decimal">
+                <column name="CODIGOPEDIDO" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codigoproducto" type="string">
+                <column name="CODIGOPRODUCTO" length="15" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="productos" class="modelos.Productos" update="false" insert="false" fetch="select">
+            <column name="CODIGOPRODUCTO" length="15" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pedidos" class="modelos.Pedidos" update="false" insert="false" fetch="select">
+            <column name="CODIGOPEDIDO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="big_decimal">
+            <column name="CANTIDAD" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="preciounidad" type="big_decimal">
+            <column name="PRECIOUNIDAD" precision="15" not-null="true" />
+        </property>
+        <property name="numerolinea" type="big_decimal">
+            <column name="NUMEROLINEA" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

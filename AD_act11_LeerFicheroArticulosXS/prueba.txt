@@ -1,0 +1,10 @@
+ID: 1 
+Nombre: fer 
+Precio: 45.45 
+Cantidad Almacen: 34 
+
+ID: 2 
+Nombre: fernando 
+Precio: 45.45 
+Cantidad Almacen: 5 
+

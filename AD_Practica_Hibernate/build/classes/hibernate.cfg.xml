@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:ORADAM2</property>
+    <property name="hibernate.connection.username">USR_VENTAS</property>
+    <property name="hibernate.connection.password">oradam02</property>
+    <mapping resource="modelos/ExVentas.hbm.xml"/>
+    <mapping resource="modelos/ExVendedores.hbm.xml"/>
+    <mapping resource="modelos/ExZonas.hbm.xml"/>
+    <mapping resource="modelos/ExArticulos.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

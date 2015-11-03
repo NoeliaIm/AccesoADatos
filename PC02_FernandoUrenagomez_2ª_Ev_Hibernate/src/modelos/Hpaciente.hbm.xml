@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-feb-2014 9:08:22 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelos.Hpaciente" table="HPACIENTE" schema="EX">
+        <id name="idpaciente" type="int">
+            <column name="IDPACIENTE" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="dni" type="string">
+            <column name="DNI" length="9" not-null="true" />
+        </property>
+        <property name="nombrep" type="string">
+            <column name="NOMBREP" length="40" not-null="true" />
+        </property>
+        <property name="nrosegsoc" type="string">
+            <column name="NROSEGSOC" length="12" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="50" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="POBLACION" length="50" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="PROVINCIA" length="40" />
+        </property>
+        <property name="fechanac" type="java.lang.Integer">
+            <column name="FECHANAC" precision="8" scale="0" />
+        </property>
+        <property name="sexo" type="char">
+            <column name="SEXO" length="1" not-null="true" />
+        </property>
+        <property name="eliminado" type="boolean">
+            <column name="ELIMINADO" precision="1" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

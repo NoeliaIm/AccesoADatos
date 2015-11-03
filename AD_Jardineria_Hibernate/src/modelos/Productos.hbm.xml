@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2014 18:09:26 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Productos" table="PRODUCTOS" schema="USR_JARDINERIA">
+        <id name="codigoproducto" type="string">
+            <column name="CODIGOPRODUCTO" length="15" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="gamasproductos" class="modelos.Gamasproductos" fetch="select">
+            <column name="GAMA" length="50" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="70" not-null="true" />
+        </property>
+        <property name="dimensiones" type="string">
+            <column name="DIMENSIONES" length="25" />
+        </property>
+        <property name="proveedor" type="string">
+            <column name="PROVEEDOR" length="50" />
+        </property>
+        <property name="descripcion" type="clob">
+            <column name="DESCRIPCION" />
+        </property>
+        <property name="cantidadenstock" type="big_decimal">
+            <column name="CANTIDADENSTOCK" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="precioventa" type="big_decimal">
+            <column name="PRECIOVENTA" precision="15" not-null="true" />
+        </property>
+        <property name="precioproveedor" type="big_decimal">
+            <column name="PRECIOPROVEEDOR" precision="15" />
+        </property>
+        <set name="detallepedidoses" table="DETALLEPEDIDOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGOPRODUCTO" length="15" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Detallepedidos" />
+        </set>
+    </class>
+</hibernate-mapping>
